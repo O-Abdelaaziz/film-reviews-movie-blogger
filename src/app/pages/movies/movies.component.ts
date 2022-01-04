@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-movies',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class MoviesComponent implements OnInit {
-
-  constructor() { }
+  public movieApiKey=environment.env.API_KEY;
+  constructor() {
+    console.log(this.movieApiKey);
+  }
 
   ngOnInit(): void {
   }

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  env: {
+    API_KEY: process.env["NG_APP_API_KEY"],
+  },
 };
 
 /*
