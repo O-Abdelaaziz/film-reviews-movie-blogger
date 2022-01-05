@@ -1,11 +1,10 @@
-{{items | json}}
 <div class="slider">
-  <div class="slide">
+  <div class="slide" *ngFor="let movie of movies">
     <div class="slide-bg">
       <img class="slide-bg-image" src="https://image.tmdb.org/t/p/original/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg" alt="">
     </div>
     <div class="slide-pane">
-      <h2 class="title">Spider-Man: No Way Home</h2>
+      <h2 class="title">{{movie.title}}</h2>
       <div class="meta">
         <div class="info">
           <span class="rating">
