@@ -54,11 +54,26 @@
         color: $lightGray;
 
         .info {
+          display: flex;
           > span {
             &:not(:last-child):after {
               content: '|';
               margin-right: 9px;
               margin-left: 9px;
+            }
+          }
+
+          .rating{
+            display: flex;
+            align-items: center;
+            .material-icons{
+              //color: #c4c441;
+              color: #d4af37 ;
+            }
+
+            &-value{
+              color: $white;
+              //font-size: 1.8rem;
             }
           }
         }
