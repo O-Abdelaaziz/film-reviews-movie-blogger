@@ -11,8 +11,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger(
       'fade',
       [state('void', style({opacity: 0})),
-      transition('void => *',[animate('1s')]),
-      transition('* => void',[animate('500ms')])
+        transition('void => *', [animate('1s')]),
+        transition('* => void', [animate('500ms')])
       ])
   ]
 })
@@ -21,11 +21,19 @@ export class SliderComponent implements OnInit {
   @Input()
   public movies: Movie[] = [];
   public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
+  public currentSlideIndex: number = 0;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.onSlide();
+  }
+
+  onSlide() {
+    setInterval(() => {
+      this.currentSlideIndex = ++this.currentSlideIndex % this.movies.length;
+    }, 4000);
   }
 
 }
