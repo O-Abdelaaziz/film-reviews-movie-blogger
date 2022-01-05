@@ -1,23 +1,21 @@
 <div class="slider">
   <div class="slide" *ngFor="let movie of movies">
     <div class="slide-bg">
-      <img class="slide-bg-image" src="https://image.tmdb.org/t/p/original/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg" alt="">
+      <img class="slide-bg-image" [src]="baseUrlImage + movie.backdrop_path" alt="">
     </div>
     <div class="slide-pane">
       <h2 class="title">{{movie.title}}</h2>
       <div class="meta">
         <div class="info">
           <span class="rating">
-            <span class="material-icons">star</span><span class="rating-value">8.4</span><span>/10</span>
+            <span class="material-icons">star</span><span class="rating-value">{{movie.vote_average}}</span><span>/10</span>
           </span>
           <span>{{movie.vote_count}} Reviews</span>
-          <span>2021</span>
+          <span>{{movie.release_date | date: 'yyyy'}}</span>
         </div>
       </div>
       <div class="overview  mt-6">
-        Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a
-        super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to
-        discover what it truly means to be Spider-Man.
+        {{movie.overview}}
       </div>
     </div>
   </div>
