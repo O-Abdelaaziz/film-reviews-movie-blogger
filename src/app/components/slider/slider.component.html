@@ -1,5 +1,5 @@
 <div class="slider">
-  <div class="slide" *ngFor="let movie of movies">
+  <div class="slide" @fade *ngFor="let movie of movies">
     <div class="slide-bg">
       <img class="slide-bg-image" [src]="baseUrlImage + movie.backdrop_path" alt="">
     </div>
