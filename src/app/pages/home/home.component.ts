@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
         this.latestMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        this._logEngineService.info(JSON.stringify(this.latestMovies), this.constructor.name, this.onGetLatestMovies.name);
+        //this._logEngineService.info(JSON.stringify(this.latestMovies), this.constructor.name, this.onGetLatestMovies.name);
       }
     )
   }
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
         this.upcomingMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        this._logEngineService.info(JSON.stringify(this.upcomingMovies), this.constructor.name, this.onGetUpcomingMovies.name);
+        // this._logEngineService.info(JSON.stringify(this.upcomingMovies), this.constructor.name, this.onGetUpcomingMovies.name);
       }
     )
   }
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
         this.topRatedMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        this._logEngineService.info(JSON.stringify(this.topRatedMovies), this.constructor.name, this.onGetTopRatedMovies.name);
+        // this._logEngineService.info(JSON.stringify(this.topRatedMovies), this.constructor.name, this.onGetTopRatedMovies.name);
       }
     )
   }
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         this.popularMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        this._logEngineService.info(JSON.stringify(this.popularMovies), this.constructor.name, this.onGetPopularMovies.name);
+        // this._logEngineService.info(JSON.stringify(this.popularMovies), this.constructor.name, this.onGetPopularMovies.name);
       }
     )
   }
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
         this.nowPlayingMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        this._logEngineService.info(JSON.stringify(this.nowPlayingMovies), this.constructor.name, this.onGetNowPlayingMovies.name);
+        // this._logEngineService.info(JSON.stringify(this.nowPlayingMovies), this.constructor.name, this.onGetNowPlayingMovies.name);
       }
     )
   }

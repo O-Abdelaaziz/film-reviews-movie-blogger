@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Movie} from "../../models/movie";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {BackdropSize} from "../../shared/enums/backdrop-size";
 
 @Component({
   selector: 'app-slider',
@@ -21,6 +22,7 @@ export class SliderComponent implements OnInit {
   @Input()
   public movies: Movie[] = [];
   public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
+  public defaultImageSize = BackdropSize.ORIGINAL;
   public currentSlideIndex: number = 0;
 
   constructor() {
