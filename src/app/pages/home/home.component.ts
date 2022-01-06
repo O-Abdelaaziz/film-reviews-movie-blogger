@@ -10,7 +10,6 @@ import {MovieType} from "../../shared/enums/movie-type";
   styles: []
 })
 export class HomeComponent implements OnInit {
-  public latestMovies: Movie[] = [];
   public upcomingMovies: Movie[] = [];
   public topRatedMovies: Movie[] = [];
   public popularMovies: Movie[] = [];
@@ -22,7 +21,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onGetLatestMovies();
     this.onGetUpcomingMovies();
     this.onGetTopRatedMovies();
     this.onGetPopularMovies();
@@ -30,20 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   //region Populate movie list depends on their type
-  onGetLatestMovies() {
-    this._moviesService.getMovies(MovieType.LATEST).subscribe(
-      (response: any) => {
-        this.latestMovies = response.results;
-        //output
-        //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
-        //this._logEngineService.info(JSON.stringify(this.latestMovies), this.constructor.name, this.onGetLatestMovies.name);
-      }
-    )
-  }
-
   onGetUpcomingMovies() {
     this._moviesService.getMovies(MovieType.UPCOMING).subscribe(
-      (response: any) => {
+      (response) => {
         this.upcomingMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
@@ -54,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   onGetTopRatedMovies() {
     this._moviesService.getMovies(MovieType.TOP_RATED).subscribe(
-      (response: any) => {
+      (response) => {
         this.topRatedMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
@@ -65,7 +52,7 @@ export class HomeComponent implements OnInit {
 
   onGetPopularMovies() {
     this._moviesService.getMovies(MovieType.POPULAR).subscribe(
-      (response: any) => {
+      (response) => {
         this.popularMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
@@ -76,7 +63,7 @@ export class HomeComponent implements OnInit {
 
   onGetNowPlayingMovies() {
     this._moviesService.getMovies(MovieType.NOW_PLAYING).subscribe(
-      (response: any) => {
+      (response) => {
         this.nowPlayingMovies = response.results;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
