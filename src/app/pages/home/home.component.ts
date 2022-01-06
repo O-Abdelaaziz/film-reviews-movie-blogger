@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   onGetUpcomingMovies() {
     this._moviesService.getMovies(MovieType.UPCOMING).subscribe(
       (response) => {
-        this.upcomingMovies = response.results;
+        this.upcomingMovies = response;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
         // this._logEngineService.info(JSON.stringify(this.upcomingMovies), this.constructor.name, this.onGetUpcomingMovies.name);
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   onGetTopRatedMovies() {
     this._moviesService.getMovies(MovieType.TOP_RATED).subscribe(
       (response) => {
-        this.topRatedMovies = response.results;
+        this.topRatedMovies = response;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
         // this._logEngineService.info(JSON.stringify(this.topRatedMovies), this.constructor.name, this.onGetTopRatedMovies.name);
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
   onGetPopularMovies() {
     this._moviesService.getMovies(MovieType.POPULAR).subscribe(
       (response) => {
-        this.popularMovies = response.results;
+        this.popularMovies = response;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
         // this._logEngineService.info(JSON.stringify(this.popularMovies), this.constructor.name, this.onGetPopularMovies.name);
@@ -64,12 +64,13 @@ export class HomeComponent implements OnInit {
   onGetNowPlayingMovies() {
     this._moviesService.getMovies(MovieType.NOW_PLAYING).subscribe(
       (response) => {
-        this.nowPlayingMovies = response.results;
+        this.nowPlayingMovies = response;
         //output
         //[HomeComponent] [Info] [onGetMoviesList] [05/01/2022, 09:19:37] [Movies Data]
         // this._logEngineService.info(JSON.stringify(this.nowPlayingMovies), this.constructor.name, this.onGetNowPlayingMovies.name);
       }
     )
   }
+
   //endregion
 }
