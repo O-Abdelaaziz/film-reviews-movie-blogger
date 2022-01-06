@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Movie} from "../../models/movie";
 
 @Component({
   selector: 'app-items-banner',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsBannerComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public movieTypes: Movie[] = [];
+  @Input()
+  public sectionTitle: String = '';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

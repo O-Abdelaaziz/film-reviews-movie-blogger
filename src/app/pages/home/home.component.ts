@@ -22,7 +22,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onGetLatestMovies();
     this.onGetUpcomingMovies();
+    this.onGetTopRatedMovies();
+    this.onGetPopularMovies();
+    this.onGetNowPlayingMovies();
   }
 
   //region Populate movie list depends on their type

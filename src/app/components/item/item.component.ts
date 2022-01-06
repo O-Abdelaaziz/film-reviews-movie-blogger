@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Movie} from "../../models/movie";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-item',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public movieData: Movie | null = null;
+  public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -15,6 +15,7 @@ export class MoviesService {
 
   getMovies(movieType: MovieType = MovieType.UPCOMING) {
     console.log(this.THE_MOVIE_DB_API_KEY);
+    console.log(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieType}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&page=1`)
     return this._httpClient.get(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieType}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&page=1`);
   }
 }
