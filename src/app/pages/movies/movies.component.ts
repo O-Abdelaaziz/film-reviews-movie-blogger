@@ -16,14 +16,18 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onGetPopularMovies();
+    this.onGetPopularMovies(1);
   }
 
-  onGetPopularMovies() {
-    this._moviesService.searchMovie(1).subscribe(
+  onGetPopularMovies(page: number) {
+    this._moviesService.searchMovie(page).subscribe(
       (response) => {
         this.movies = response;
       }
     )
+  }
+
+  onPaginate($event: any) {
+    this.onGetPopularMovies($event.page + 1);
   }
 }
