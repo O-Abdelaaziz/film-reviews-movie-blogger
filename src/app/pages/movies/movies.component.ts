@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   }
 
   onGetPopularMovies() {
-    this._moviesService.getMovies(MovieType.POPULAR, 20).subscribe(
+    this._moviesService.searchMovie(1).subscribe(
       (response) => {
         this.movies = response;
       }
