@@ -6,20 +6,23 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 @import "~primeflex/primeflex.scss";
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/lara-light-indigo/theme.css';
+@import '~primeng/resources/primeng.min.css';
 
-body{
+body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: $white;
   background-color: $bgColor;
 }
 
-.container{
+.container {
   margin: 0.5rem;
   padding: 0.5rem;
 }
 
-a{
+a {
   text-decoration: none;
   color: $white;
 }
@@ -28,7 +31,7 @@ a{
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
