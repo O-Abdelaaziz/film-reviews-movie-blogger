@@ -16,6 +16,7 @@ import {PaginatorModule} from "primeng/paginator";
 import {MovieDetailsComponent} from './pages/movie-details/movie-details.component';
 import {TabViewModule} from "primeng/tabview";
 import {ImageModule} from "primeng/image";
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {ImageModule} from "primeng/image";
     SliderComponent,
     ItemsBannerComponent,
     ItemComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    VideoEmbedComponent
   ],
   imports: [
     BrowserModule,

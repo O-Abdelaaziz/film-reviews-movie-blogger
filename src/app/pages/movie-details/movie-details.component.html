@@ -7,7 +7,7 @@
         <span>&nbsp;Overview</span>
       </ng-template>
       <div class="grid">
-        <div class="col-12 md:col-3 lg:cpl-3">
+        <div class="col-12 md:col-3 lg:col-3">
           <!--          <img class="poster" [src]="baseUrlImage + defaultImageSize + movie.poster_path" [alt]="movie.title"/>-->
           <p-image class="poster" [src]="baseUrlImage + defaultImageSize + movie.poster_path" [alt]="movie.title"
                    [preview]="true" width="100%"></p-image>
@@ -55,7 +55,16 @@
         <span class="material-icons">videocam</span>
         <span>&nbsp;Videos</span>
       </ng-template>
-      {{movieVideos | json}}
+      <div class="grid" *ngIf="movieVideos">
+        <ng-container *ngFor="let movieVideo of movieVideos">
+          <div class="col-12 md:col-4 lg:col-4">
+            <app-video-embed [videoSite]="movieVideo.site"
+                             [videoTitle]="movie.title"
+                             [videoKey]="movieVideo.key"
+            ></app-video-embed>
+          </div>
+        </ng-container>
+      </div>
     </p-tabPanel>
     <p-tabPanel header="Photos">
 
