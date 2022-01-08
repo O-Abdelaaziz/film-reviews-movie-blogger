@@ -51,7 +51,11 @@
       </div>
     </p-tabPanel>
     <p-tabPanel header="Videos">
-
+      <ng-template pTemplate="header">
+        <span class="material-icons">videocam</span>
+        <span>&nbsp;Videos</span>
+      </ng-template>
+      {{movieVideos | json}}
     </p-tabPanel>
     <p-tabPanel header="Photos">
 

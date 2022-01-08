@@ -19,4 +19,5 @@ export interface Movie {
   runtime: number;
   status: string;
   genres: Genre[];
+  tagline: string;
 }

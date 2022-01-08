@@ -6,6 +6,7 @@ import {MovieDto} from "../models/movie-dto";
 import {switchMap} from "rxjs/operators";
 import {of} from "rxjs";
 import {Movie} from "../models/movie";
+import {MovieVideoDto} from "../models/movie-video-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,14 @@ export class MovieService {
     return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieType}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
       .pipe(switchMap(response => {
         return of(response.results.slice(0, size));
+      }));
+  }
+
+
+  getMovieVideos(movieId: number) {
+    return this._httpClient.get<MovieVideoDto>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieId}/videos?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
+      .pipe(switchMap(response => {
+        return of(response.results);
       }));
   }
 
