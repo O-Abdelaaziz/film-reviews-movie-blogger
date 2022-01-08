@@ -21,6 +21,8 @@ export class SliderComponent implements OnInit {
 
   @Input()
   public movies: Movie[] = [];
+  @Input()
+  public isBanner: boolean = false;
   public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
   public defaultImageSize = BackdropSize.ORIGINAL;
   public currentSlideIndex: number = 0;
@@ -33,9 +35,11 @@ export class SliderComponent implements OnInit {
   }
 
   onSlide() {
-    setInterval(() => {
-      this.currentSlideIndex = ++this.currentSlideIndex % this.movies.length;
-    }, 4000);
+    if (!this.isBanner) {
+      setInterval(() => {
+        this.currentSlideIndex = ++this.currentSlideIndex % this.movies.length;
+      }, 4000);
+    }
   }
 
 }
