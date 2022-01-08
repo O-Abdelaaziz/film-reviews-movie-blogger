@@ -5,11 +5,12 @@ import {MovieType} from "../shared/enums/movie-type";
 import {MovieDto} from "../models/movie-dto";
 import {switchMap} from "rxjs/operators";
 import {of} from "rxjs";
+import {Movie} from "../models/movie";
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class MovieService {
   private THE_MOVIE_DB_API_KEY = environment.env.API_KEY;
   private THE_MOVIE_DB_BASE_URL = environment.MOVIE_DB_BASE_URL;
 
@@ -28,5 +29,9 @@ export class MoviesService {
       .pipe(switchMap(response => {
         return of(response.results);
       }));
+  }
+
+  getMovieDetails(movieId: number) {
+    return this._httpClient.get<Movie>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieId}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
   }
 }

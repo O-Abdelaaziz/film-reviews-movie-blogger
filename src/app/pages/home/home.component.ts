@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MoviesService} from "../../services/movies.service";
+import {MovieService} from "../../services/movie.service";
 import {LogEngineService} from "../../shared/services/logs/log-engine.service";
 import {Movie} from "../../models/movie";
 import {MovieType} from "../../shared/enums/movie-type";
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public nowPlayingMovies: Movie[] = [];
 
   constructor(
-    private _moviesService: MoviesService,
+    private _movieService: MovieService,
     private _logEngineService: LogEngineService) {
   }
 
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   //region Populate movie list depends on their type
   onGetUpcomingMovies() {
-    this._moviesService.getMovies(MovieType.UPCOMING).subscribe(
+    this._movieService.getMovies(MovieType.UPCOMING).subscribe(
       (response) => {
         this.upcomingMovies = response;
         //output
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   }
 
   onGetTopRatedMovies() {
-    this._moviesService.getMovies(MovieType.TOP_RATED).subscribe(
+    this._movieService.getMovies(MovieType.TOP_RATED).subscribe(
       (response) => {
         this.topRatedMovies = response;
         //output
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   onGetPopularMovies() {
-    this._moviesService.getMovies(MovieType.POPULAR).subscribe(
+    this._movieService.getMovies(MovieType.POPULAR).subscribe(
       (response) => {
         this.popularMovies = response;
         //output
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   onGetNowPlayingMovies() {
-    this._moviesService.getMovies(MovieType.NOW_PLAYING).subscribe(
+    this._movieService.getMovies(MovieType.NOW_PLAYING).subscribe(
       (response) => {
         this.nowPlayingMovies = response;
         //output
