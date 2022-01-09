@@ -39,7 +39,6 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getMovieDetails(this.movieId).subscribe(
       (response) => {
         this.movie = response;
-        console.log(this.movie)
       }
     )
   }
@@ -48,6 +47,7 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getMovieVideos(this.movieId).subscribe(
       (response) => {
         this.movieVideos = response;
+        console.log(response)
       }
     )
   }
