@@ -6,6 +6,7 @@ import {environment} from "../../../environments/environment";
 import {PosterSize} from "../../shared/enums/poster-size";
 import {MovieVideo} from "../../models/movie-video";
 import {MovieImage} from "../../models/movie-image";
+import {MovieCredit} from "../../models/movie-credit";
 
 @Component({
   selector: 'app-movie-details',
@@ -16,6 +17,7 @@ export class MovieDetailsComponent implements OnInit {
   public movie: Movie | null = null;
   public movieVideos: MovieVideo[] = [];
   public movieImages: MovieImage | null = null;
+  public movieCredits: MovieCredit | null = null;
   public movieId: number = 0;
   public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
   public defaultImageSize = PosterSize.W342;
@@ -29,6 +31,7 @@ export class MovieDetailsComponent implements OnInit {
     this.onGetMovieDetails();
     this.onGetMovieVideos();
     this.onGetMoviePhotos();
+    this.onGetMovieCredit();
   }
 
   /**
@@ -58,6 +61,15 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.getMovieImages(this.movieId).subscribe(
       (response) => {
         this.movieImages = response;
+      }
+    )
+  }
+
+  onGetMovieCredit() {
+    this._movieService.getMovieCredits(this.movieId).subscribe(
+      (response) => {
+        this.movieCredits = response;
+        console.log(response)
       }
     )
   }
