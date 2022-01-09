@@ -81,18 +81,17 @@
       </div>
     </p-tabPanel>
   </p-tabView>
-
   <p-carousel [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" *ngIf="movieCredits"  [value]="movieCredits!.cast" >
     <ng-template let-actor pTemplate="item">
       <div class="actor-item">
         <div class="actor-item-content">
           <div class="p-mb-3 p-p-1">
-            <img [src]="baseUrlImage + defaultImageSize + actor.profile_path" [alt]="actor.name" class="actor-image"   />
+            <img *ngIf="actor.profile_path" [src]="baseUrlImage + defaultImageSize + actor.profile_path" [alt]="actor.name" class="actor-image"   />
           </div>
           <div style="text-align: center">
             <h4 class="p-mb-1">{{actor.original_name}}</h4>
             <h5 class="p-mt-0 p-mb-3">as {{actor.character}}</h5>
-            <span [class]="'actor-badge status-'">{{"actor.inventoryStatus"}}</span>
+<!--            <span [class]="'actor-badge status-'">{{"actor.inventoryStatus"}}</span>-->
             <div class="car-buttons p-mt-5">
 <!--              <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>-->
 <!--              <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star-fill"></p-button>-->

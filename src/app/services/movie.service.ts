@@ -9,6 +9,7 @@ import {Movie} from "../models/movie";
 import {MovieVideoDto} from "../models/movie-video-dto";
 import {MovieImage} from "../models/movie-image";
 import {MovieCredit} from "../models/movie-credit";
+import {GenreDto} from "../models/genre-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,13 @@ export class MovieService {
     return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieType}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
       .pipe(switchMap(response => {
         return of(response.results.slice(0, size));
+      }));
+  }
+
+  getGenres() {
+    return this._httpClient.get<GenreDto>(`${this.THE_MOVIE_DB_BASE_URL}/genre/movie/list?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
+      .pipe(switchMap(response => {
+        return of(response.genres);
       }));
   }
 

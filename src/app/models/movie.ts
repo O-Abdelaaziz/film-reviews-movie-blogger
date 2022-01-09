@@ -1,4 +1,4 @@
-import {Genre} from "./genre";
+import {GenreDto} from "./genre-dto";
 
 export interface Movie {
   id: number;
@@ -18,6 +18,6 @@ export interface Movie {
   revenue: number;
   runtime: number;
   status: string;
-  genres: Genre[];
+  genres: GenreDto[];
   tagline: string;
 }
