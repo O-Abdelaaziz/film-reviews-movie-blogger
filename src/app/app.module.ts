@@ -20,6 +20,7 @@ import {VideoEmbedComponent} from './components/video-embed/video-embed.componen
 import {CarouselModule} from "primeng/carousel";
 import { GenresComponent } from './pages/genres/genres.component';
 import {InputTextModule} from "primeng/inputtext";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {InputTextModule} from "primeng/inputtext";
     ImageModule,
     InputTextModule,
     CarouselModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
