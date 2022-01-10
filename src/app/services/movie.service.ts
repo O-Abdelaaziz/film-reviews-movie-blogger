@@ -29,8 +29,8 @@ export class MovieService {
   }
 
   searchMovie(page: number, search?: string) {
-    const uri = search ? 'search/movie' : 'movie/popular';
-    return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/${uri}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&query=${search}&page=${page}`)
+    const uri = search ? `search/movie?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&query=${search}&page=${page}` : `movie/popular?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&page=${page}`;
+    return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/${uri}`)
       .pipe(switchMap(response => {
         return of(response.results);
       }));
