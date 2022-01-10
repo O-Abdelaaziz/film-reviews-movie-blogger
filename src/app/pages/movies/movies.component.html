@@ -4,7 +4,7 @@
       <div class="p-fluid">
           <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
-            <input type="text" pInputText placeholder="Search"/>
+            <input type="text" pInputText placeholder="Search" [(ngModel)]="searchValue" (keyup)="onSearchMovie()"/>
         </span>
       </div>
     </div>

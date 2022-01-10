@@ -13,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MoviesComponent implements OnInit {
   public movies: Movie[] = [];
   public genreId: number;
+  public searchValue: string = '';
 
   constructor(
     private _movieService: MovieService,
@@ -58,5 +59,9 @@ export class MoviesComponent implements OnInit {
       this.onGetMovieByGenre(pageNumber)
     }
     this.onGetPopularMovies(pageNumber);
+  }
+
+  onSearchMovie() {
+    console.log(this.searchValue)
   }
 }
