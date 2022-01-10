@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit {
   public movies: Movie[] = [];
   public genreId: number;
   public searchValue: null = null;
+  public maxPageNumber: number = environment.MAX_PAGE_NUMBER;
 
   constructor(
     private _movieService: MovieService,
