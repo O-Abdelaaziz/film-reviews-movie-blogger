@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'genres', component: GenresComponent},
   {path: 'movies', component: MoviesComponent},
+  {path: 'movies/genres/:id', component: MoviesComponent},
   {path: 'movie/:id', component: MovieDetailsComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: ''}
