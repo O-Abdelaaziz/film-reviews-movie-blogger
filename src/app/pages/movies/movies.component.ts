@@ -13,7 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MoviesComponent implements OnInit {
   public movies: Movie[] = [];
   public genreId: number;
-  public searchValue: string = '';
+  public searchValue: null = null;
 
   constructor(
     private _movieService: MovieService,
@@ -26,8 +26,18 @@ export class MoviesComponent implements OnInit {
     this.onGetMovies();
   }
 
-  onGetPopularMovies(page: number) {
-    this._movieService.searchMovie(page).subscribe(
+  onGetMovies() {
+    let hasGenreId: boolean = this._activatedRoute.snapshot.paramMap.has('id');
+    if (hasGenreId) {
+      this.onGetMovieByGenre(1);
+
+    } else {
+      this.onGetPopularMovies(1);
+    }
+  }
+
+  onGetPopularMovies(page: number, search?: string) {
+    this._movieService.searchMovie(page, search).subscribe(
       (response) => {
         this.movies = response;
       }
@@ -43,25 +53,23 @@ export class MoviesComponent implements OnInit {
     );
   }
 
-  onGetMovies() {
-    let hasGenreId: boolean = this._activatedRoute.snapshot.paramMap.has('id');
-    if (hasGenreId) {
-      this.onGetMovieByGenre(1);
-
-    } else {
-      this.onGetPopularMovies(1);
-    }
-  }
-
   onPaginate($event: any) {
     const pageNumber = $event.page + 1;
     if (this.genreId) {
       this.onGetMovieByGenre(pageNumber)
+    } else {
+      if (this.searchValue) {
+        this.onGetPopularMovies(pageNumber, this.searchValue);
+      } else {
+        this.onGetPopularMovies(pageNumber);
+      }
     }
-    this.onGetPopularMovies(pageNumber);
+
   }
 
   onSearchMovie() {
-    console.log(this.searchValue)
+    if (this.searchValue) {
+      this.onGetPopularMovies(1, this.searchValue);
+    }
   }
 }

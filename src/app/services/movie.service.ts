@@ -21,8 +21,16 @@ export class MovieService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  searchMovie(page: number) {
-    return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/movie/popular?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&page=${page}`)
+  getGenres() {
+    return this._httpClient.get<GenreDto>(`${this.THE_MOVIE_DB_BASE_URL}/genre/movie/list?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
+      .pipe(switchMap(response => {
+        return of(response.genres);
+      }));
+  }
+
+  searchMovie(page: number, search?: string) {
+    const uri = search ? 'search/movie' : 'movie/popular';
+    return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/${uri}?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US&query=${search}&page=${page}`)
       .pipe(switchMap(response => {
         return of(response.results);
       }));
@@ -39,13 +47,6 @@ export class MovieService {
     return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/discover/movie?with_genres=${genreId}&api_key=${this.THE_MOVIE_DB_API_KEY}&page=${page}&language=en-US`)
       .pipe(switchMap(response => {
         return of(response.results);
-      }));
-  }
-
-  getGenres() {
-    return this._httpClient.get<GenreDto>(`${this.THE_MOVIE_DB_BASE_URL}/genre/movie/list?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
-      .pipe(switchMap(response => {
-        return of(response.genres);
       }));
   }
 
