@@ -13,7 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MoviesComponent implements OnInit {
   public movies: Movie[] = [];
   public genreId: number;
-  public searchValue: null = null;
+  public searchValue: string | null = null;
   public maxPageNumber: number = environment.MAX_PAGE_NUMBER;
 
   constructor(
@@ -73,6 +73,4 @@ export class MoviesComponent implements OnInit {
     }
 
   }
-
-
 }
