@@ -80,7 +80,7 @@
         </ng-container>
       </div>
     </p-tabPanel>
-  </p-tabView>
+  </p-tabView>git status
   <p-carousel [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" *ngIf="movieCredits"  [value]="movieCredits!.cast" >
     <ng-template let-actor pTemplate="item">
       <div class="actor-item">
@@ -102,4 +102,5 @@
       </div>
     </ng-template>
   </p-carousel>
+  <app-items-banner [movieTypes]="movieSimilars" [sectionTitle]="'Similar Movies'"></app-items-banner>
 </ng-container>

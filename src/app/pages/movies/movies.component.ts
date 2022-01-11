@@ -37,12 +37,10 @@ export class MoviesComponent implements OnInit {
     }
   }
 
-  onGetPopularMovies(page: number, search?: string) {
-    this._movieService.searchMovie(page, search).subscribe(
-      (response) => {
-        this.movies = response;
-      }
-    )
+  onSearchMovie() {
+    if (this.searchValue) {
+      this.onGetPopularMovies(1, this.searchValue);
+    }
   }
 
   onGetMovieByGenre(page: number) {
@@ -52,6 +50,14 @@ export class MoviesComponent implements OnInit {
         this.movies = response;
       }
     );
+  }
+
+  onGetPopularMovies(page: number, search?: string) {
+    this._movieService.searchMovie(page, search).subscribe(
+      (response) => {
+        this.movies = response;
+      }
+    )
   }
 
   onPaginate($event: any) {
@@ -68,9 +74,5 @@ export class MoviesComponent implements OnInit {
 
   }
 
-  onSearchMovie() {
-    if (this.searchValue) {
-      this.onGetPopularMovies(1, this.searchValue);
-    }
-  }
+
 }

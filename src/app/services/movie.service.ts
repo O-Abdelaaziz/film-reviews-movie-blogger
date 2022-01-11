@@ -68,4 +68,14 @@ export class MovieService {
   getMovieCredits(movieId: number) {
     return this._httpClient.get<MovieCredit>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieId}/credits?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`);
   }
+
+  getMovieSimilar(movieId: number) {
+    return this._httpClient.get<MovieDto>(`${this.THE_MOVIE_DB_BASE_URL}/movie/${movieId}/similar?api_key=${this.THE_MOVIE_DB_API_KEY}&language=en-US`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.results.slice(0, 12));
+        })
+      );
+
+  }
 }

@@ -18,6 +18,7 @@ export class MovieDetailsComponent implements OnInit {
   public movieVideos: MovieVideo[] = [];
   public movieImages: MovieImage | null = null;
   public movieCredits: MovieCredit | null = null;
+  public movieSimilars: Movie[] = [];
   public movieId: number = 0;
   public baseUrlImage = environment.BASE_IMAGES_URL_ORIGINAL;
   public defaultImageSize = PosterSize.W342;
@@ -32,6 +33,7 @@ export class MovieDetailsComponent implements OnInit {
     this.onGetMovieVideos();
     this.onGetMoviePhotos();
     this.onGetMovieCredit();
+    this.onGetMovieSimilar();
   }
 
   /**
@@ -74,4 +76,11 @@ export class MovieDetailsComponent implements OnInit {
     )
   }
 
+  onGetMovieSimilar() {
+    this._movieService.getMovieSimilar(this.movieId).subscribe(
+      (response) => {
+        this.movieSimilars = response;
+      }
+    )
+  }
 }
